@@ -188,3 +188,19 @@ console.log(booksByPrice)
 //Crea un array(booksByPrice) con gli elementi di books ordinati in base al prezzo(crescente).
 
 //Ordina l’array booksByPricein base alla disponibilità(prima quelli disponibili), senza creare un nuovo array.
+
+
+
+//Snack 7 (Bonus) -
+//Analizza i tag
+//Usa reduce per creare un oggetto (tagCounts) che conta quante volte ogni tag viene usato tra i libri.
+const tagCounts = books.reduce((acc, book) => {
+	book.tags.forEach(tag => {
+		if (!acc[tag]) {
+			acc[tag] = 0
+		}
+		acc[tag]++
+	});
+	return acc
+}, {})
+console.log(tagCounts)
