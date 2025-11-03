@@ -178,11 +178,12 @@ getBooks(ids).then(books => console.log(books))
 console.log("bonus 6")
 
 const areThereAvailableBooks = books.some(b => b.available)
-const booksByPrice = books.sort((a, b) => {
+const booksByPrice = [...books].sort((a, b) => {
 	const priceA = parseFloat(a.price.replace('€', ''))
 	const priceB = parseFloat(b.price.replace('€', ''))
 	return priceA - priceB
 })
+booksByPrice.sort((a, b) => a.available === b.available ? 0 : a.available ? -1 : 1)
 console.log(booksByPrice)
 //Crea un array(booksByPrice) con gli elementi di books ordinati in base al prezzo(crescente).
 
